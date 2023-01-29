@@ -9,7 +9,6 @@ module.exports = defineConfig({
                 @import "@/assets/scss/_variables.scss";
                 @import "@/assets/scss/_main.scss";
                 @import "@/assets/scss/_animations.scss";
-                @import "@/assets/scss/_utils.scss";
             `
         }
     }

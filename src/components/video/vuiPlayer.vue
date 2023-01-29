@@ -69,7 +69,7 @@
                       <img v-else height="20" src="@/assets/image/collapse.svg" alt="collapse"/>
                     </div>
                     <div class="logo-button" @click="openBaseUrl()">
-                      <img height="16" src="@/assets/image/logo-a.svg" alt="logo"/>
+                      <img height="16" src="@/assets/image/collapse.svg" alt="logo"/>
                     </div>
                   </span>
               </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="vui-container">
     <header class="vui-header">
-      <vuiHeader :menus="menus"/>
+      <vui-header :menus="menus"/>
     </header>
 
     <main class="vui-main">
@@ -9,7 +9,7 @@
     </main>
 
     <footer class="vui-footer">
-      <vuiFooter :menus="menus"/>
+      <vui-footer :menus="menus"/>
     </footer>
   </div>
 </template>

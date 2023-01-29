@@ -33,7 +33,6 @@ app.component("vui-loading", vuiLoading)
 app.component("vui-player", vuiPlayer)
 app.component("vui-breadcrumb", vuiBreadcrumb)
 app.component("vui-stepper", vuiStepper)
-app.component("vue-editor", VueEditor)
 
 
 app.component("vui-header", vuiHeader)

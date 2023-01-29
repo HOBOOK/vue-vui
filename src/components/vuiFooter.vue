@@ -7,7 +7,7 @@
             :key="menu.key"
           >
             <router-link :to="menu.path">
-              <strong>{{$t(menu.text)}}</strong>
+              <strong>{{menu.text}}</strong>
             </router-link>
            
 
@@ -16,52 +16,36 @@
               :key="submenu.key"
               class="section-submenu-wrap"
             >
-              <router-link :to="submenu.path">{{$t(submenu.text)}}</router-link>
+              <router-link :to="submenu.path">{{submenu.text}}</router-link>
             </div>
           </div>
 
           <div
             class="section-menu-addon"
           >
-            <div>
-              <router-link to="/"><strong>{{$t('기업소개서')}}</strong><img alt="external-link" src="@/assets/image/external-link.svg" height="12" style="margin-left:6px;"/></router-link>
-            </div>
-            <div>
-              <router-link  to="/"><strong>{{$t('개인정보처리방침')}}</strong><img alt="external-link" src="@/assets/image/external-link.svg" height="12" style="margin-left:6px;"/></router-link>
-            </div>
+            d
           </div>
         </section>
 
         <section class="vui-footer-section-info">
           <span class="section-info-logo">
             <router-link to="/">
-              <img alt="logo" src="@/assets/image/logo.svg"  height="20"/>
+              <img alt="logo" src="@/assets/image/collapse.svg"  height="20"/>
             </router-link>
           </span>
 
           <nav class="section-info-main">
             <div>
-              {{$t('(주)바질컴퍼니')}}
             </div>
-            <div>
-              {{$t('회사주소')}}
-            </div>
-            <div>
-              {{$t('사업자등록번호')}}: 180-88-00809 {{$t('대표')}}: {{$t('황희경')}} FAX: 051.609.9634
-            </div>
-            <div>
-              TEL: 051-609-9633 EMAIL : admin@vazilcompany.com
-            </div>
+
           </nav>
 
           
 
           <div class="section-menu-sns">
             <button @click="$utils.openLink('https://blog.naver.com/vazilcompany')">
-              <img alt="globe" src="@/assets/image/naver-blog.svg" width="24" height="24"/>
             </button>
             <button @click="$utils.openLink('https://www.youtube.com/@user-yo5xu2gv4q')">
-              <img alt="globe" src="@/assets/image/youtube.svg" width="24" height="24"/>
             </button>
           </div>
 

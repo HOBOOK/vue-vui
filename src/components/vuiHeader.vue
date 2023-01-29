@@ -2,7 +2,7 @@
     <div class="vui-header-content container-width" :class="{dynamic:dynamic && !allMenu}" v-click-outside="onClickOutside">
       <span class="vui-header-title">
         <router-link to="/">
-          <img class="logo" alt="logo" src="@/assets/image/logo-color.png"  height="20"/>
+          <img class="logo" alt="logo" src=""  height="20"/>
         </router-link>
       </span>
 
@@ -13,8 +13,8 @@
             :key="menu.key"
             @mouseover="hoverMenu(menu)"
           >
-            <router-link :to="menu.path" :class="{active: $route.path.indexOf(menu.path) !== -1}">
-              <strong>{{$t(menu.text)}}</strong>
+            <router-link :to="menu.path">
+              <strong>{{menu.text}}</strong>
             </router-link>
 
             <ul class="vui-header-submenu" v-if="selectedMenu === menu && menu.childrens.length > 0">
@@ -23,11 +23,11 @@
                 :key="submenu.key"
               >
                 <a v-if="submenu.outlink" @click="selectedMenu = null, $utils.openLink(submenu.path)" class="outlink">
-                  {{$t(submenu.text)}}
+                  {{submenu.text}}
                   <img alt="external-link" src="@/assets/image/external-link.svg" height="12" style="margin-left:6px;"/>
                 </a>
                 <router-link v-else :to="submenu.path" @click="selectedMenu = null">
-                  {{$t(submenu.text)}}
+                  {{submenu.text}}
                 </router-link>
               </li>
             </ul>
@@ -42,7 +42,7 @@
             >
               <div>
                 <router-link :to="menu.path" @click="allMenu = false">
-                  <strong>{{$t(menu.text)}}</strong>
+                  <strong>{{menu.text}}</strong>
                 </router-link>
               </div>
               <div 
@@ -51,11 +51,11 @@
                 :key="submenu.key"
               >
                 <a v-if="submenu.outlink" @click="allMenu = false, $utils.openLink(submenu.path)" class="outlink">
-                  {{$t(submenu.text)}}
+                  {{submenu.text}}
                   <img alt="external-link" src="@/assets/image/external-link.svg" height="12" style="margin-left:6px;"/>
                 </a>
                 <router-link v-else :to="submenu.path" @click="allMenu = false">
-                  {{$t(submenu.text)}}
+                  {{submenu.text}}
                 </router-link>
               </div>
             </li>
@@ -106,8 +106,7 @@
       </nav>
 
       <div class="vui-header-util">
-        <button @click="setLanguage()" class="vui-button round globe">
-          <span class="add">{{$i18n.locale}}</span>
+        <button class="vui-button round globe">
           <img alt="globe" src="@/assets/image/globe2.svg" width="20" height="20"/>
         </button>
 
@@ -121,13 +120,9 @@
   </template>
   
 <script>
-import vClickOutside from 'click-outside-vue3'
 
 export default {
   name: 'vuiHeader',
-  directives: {
-    clickOutside: vClickOutside.directive
-  },
   props: {
     menus:{
       type: Array,
@@ -160,12 +155,6 @@ export default {
   },
 
   methods:{
-    setLanguage() {
-      this.$route.query.lang = (this.$i18n.locale === 'kr' ? 'en' : 'kr')
-      let route = this.$router.resolve({path: this.$route.path, query: this.$route.query});
-      
-      window.open(route.href, '_self');
-    },
     openMenu() {
       this.allMenu = !this.allMenu
     },
@@ -209,7 +198,6 @@ export default {
       }
       .vui-header-title {
         img{
-          content: url('@/assets/image/logo-color-w.png');
         }
       }
 
@@ -264,9 +252,6 @@ export default {
 
     .logo{
       padding:8px;
-      @media screen and (max-width: #{$breakpoint-md}) {   
-        content: url('@/assets/image/logo-a.svg') !important;
-      }
     }
   }
 
@@ -579,20 +564,6 @@ export default {
     @media screen and (max-width: #{$breakpoint-md}) {
       column-gap: 6px;
     }
-
-    .vui-button{
-      &.globe{
-        .add{
-          font-weight: bold;
-          text-transform: uppercase;
-          position: absolute;
-          font-size: 10px;
-          top:2px;
-          left:-4px;
-        }
-      }
-    }
-
     .vui-header-menu-btn{
         display: inline-block;
         width: 20px;
