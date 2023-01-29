@@ -1,0 +1,497 @@
+@import "@/assets/scss/_variables.scss";
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('@/assets/fonts/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+html{
+    height: 100vh;
+    min-width: $min-width;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body{
+    min-height: 50vh;
+    max-width: calc(100vw - 0px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    word-break: keep-all;
+    word-wrap: break-word;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin:0;
+    padding:0;
+
+    *{
+        font-family: 'Apple SD Gothic Neo', 'Pretendard-Regular', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    a{
+        text-decoration: none;
+        color: $base-foreground-color;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-appearance: none; 
+        -webkit-border-radius: 0; 
+    }
+
+    .pointer{
+        cursor: pointer;
+    }
+
+    ::-moz-selection {
+        background: $base-selection-color;
+        color: #000;
+     }
+     ::selection {
+        background: $base-selection-color;
+        color: #000;
+     }
+
+     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $base-foreground-placeholder-color;
+        opacity: 1; /* Firefox */
+      }
+      
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $base-foreground-placeholder-color;
+      }
+      
+      ::-ms-input-placeholder { /* Microsoft Edge */
+        color: $base-foreground-placeholder-color;
+      }
+
+    button {
+        background-color: $base-button-default-background-color;
+        color: $base-foreground-color;
+    }
+}
+
+
+
+.vui-input {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    margin:0;
+    padding:0;
+    border-radius: 12px;
+    min-height: 18px;
+
+    *{
+        font-size: 16px;
+    }
+
+    &.full {
+        width:100%;
+    }
+
+    @media screen and (max-width: #{$breakpoint-md}) {    
+        *{
+            font-size: 14px;
+        }
+    }
+    
+    input{
+        border:0;
+        outline: none;
+        margin: 0;
+        padding: $base-button-padding;
+
+        @media screen and (max-width: #{$breakpoint-md}) {    
+            padding: $base-button-mobile-padding;
+        }
+        transition: all .15s ease-in-out;
+        background-color: $base-button-default-background-color;
+        border-radius: inherit;
+        width:100%;
+        max-width:calc(100% - 40px);
+
+        &.append-icon{
+            padding-left:42px;
+            max-width:calc(100% - 62px);
+        }
+
+        &.label{
+            padding-left:86px;
+            max-width:calc(100% - 106px);
+
+            label{
+                font-size: 34px !important;
+            }
+        }
+
+        &:focus{
+            background-color: $base-background-color;
+            box-shadow: 0 0px 4px $base-primary-shadow-color;
+        }
+
+        &:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 1000px $base-button-default-background-color inset;
+            box-shadow: 0 0 0 1000px $base-button-default-background-color inset;
+        }
+    }
+
+    input[type=file]{
+        cursor: pointer;
+
+        &.empty{
+            color: $base-foreground-placeholder-color;
+        }
+
+    }
+
+    input[type=checkbox]{
+        width:18px;
+        height:18px;
+        display: inline-block;
+        position: absolute;
+        left:6px;
+        top:calc(50% - 9px);
+        padding:0;
+        border-radius: 4px;
+        background-color: $base-background-color;
+        border: 1px solid $base-foreground-opacity-color;
+        -webkit-appearance: none;
+        outline: none !important;
+        color: #ccc;
+
+        &:checked {
+            color: #fff;
+            background-color: $base-primary-color;
+
+            &::before {
+                border-radius: 2px;
+                transform: scale(1) translate(-50%, -50%)
+            }
+        }
+
+        &:hover {
+            background-color: $base-primary-opacity-color;
+        }
+
+        &::before {
+            content: "\2713";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            overflow: hidden;
+            transform: scale(0) translate(-50%, -50%);
+            line-height: 1;
+        }
+    }
+
+    .close{
+        position: absolute;
+        width:20px;
+        height: 20px;
+        top:calc(50% - 10px);
+        right:20px;
+        cursor: pointer;
+
+        span {
+            width: 16px;
+            height: 2px;
+            position: absolute;
+            top: 50%;
+            left: 2px;
+            transform: translate(-50%, -50%);
+            transition: all 0.2s ease-in-out;
+            background-color: #222222;
+            transform: rotate(45deg);
+    
+            &:nth-of-type(2) {
+              top: calc(50%);
+              right: 2px;
+              transform: rotate(-45deg);
+            }
+        }
+    }
+
+    .select{
+        border-radius: inherit;
+        margin:0;
+        padding:0;
+        select{
+            -o-appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border:0;
+            outline: none;
+            margin: 0;
+            
+            transition: all .15s ease-in-out;
+            border-radius: inherit;
+            background-color: transparent;
+            position: relative;
+            background-color: $base-button-default-background-color;
+            padding:12px 48px 12px 18px;
+
+            
+            width:100%;
+            
+            &.append-icon{
+                padding-left:42px;
+                max-width:calc(100% - 62px);
+            }
+
+            &.empty{
+                color: $base-foreground-placeholder-color;
+            }
+
+            &.label{
+                padding-left:86px;
+
+                label{
+                    font-size: 34px !important;
+                }
+            }
+
+            &:focus{
+                background-color: $base-background-color;
+                box-shadow: 0 0px 4px $base-primary-shadow-color;
+
+                + .arrow {
+                    transform: rotate(180deg);
+                }
+            }
+
+            &:disabled{
+                opacity: 0.5;
+            }
+            
+            option {
+                font-size: 16px;
+                color: $base-foreground-color;
+            }
+
+        }
+
+        .arrow{
+            position: absolute; 
+            top: calc(50% - 10px); 
+            right: 20px; 
+            z-index: 1; 
+            width: 20px; 
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(0deg);
+            transition: .2s;
+            
+            span {
+                width: 10px;
+                height: 2px;
+                position: absolute;
+                top: 50%;
+                left: 2px;
+                transform: translate(-50%, -50%);
+                transition: all 0.2s ease-in-out;
+                background-color: #222222;
+                transform: rotate(45deg);
+        
+                &:nth-of-type(2) {
+                  top: calc(50%);
+                  left:calc(50% - 2px);
+                  transform: rotate(-45deg);
+                }
+            }
+
+        }
+    }
+
+    
+
+    .vui-input-checkbox-detail {
+        height:24px;
+        line-height: 24px;
+        margin-left:36px;
+        margin-right:12px;
+    }
+
+    ::file-selector-button {
+       display: none;
+    }
+
+    textarea{
+        border:0;
+        outline: none;
+        margin: 0;
+        padding:$base-button-padding;
+
+        @media screen and (max-width: #{$breakpoint-md}) {    
+            padding:$base-button-mobile-padding;
+        }
+
+
+        transition: all .15s ease-in-out;
+        background-color: $base-button-default-background-color;
+        border-radius: inherit;
+        width:100%;
+        max-width:calc(100% - 40px);
+        resize: none;
+
+        &.append-icon{
+            padding-left:42px;
+            max-width:calc(100% - 62px);
+        }
+
+        &.label{
+            padding-left:86px;
+            max-width:calc(100% - 110px);
+
+            label{
+                font-size: 34px !important;
+            }
+        }
+
+        &:focus{
+            background-color: $base-background-color;
+            box-shadow: 0 0px 4px $base-primary-shadow-color;
+        }
+    }
+
+    .vui-input-label{
+        position: absolute;
+        left:20px;
+        top:calc(50% - 20px);
+        font-weight: bold;
+        height:40px;
+        width:64px;
+        line-height: 40px;
+        z-index: 1;
+        margin:0;
+        padding:0;
+    }
+
+    .icon{
+        position: absolute;
+        width:16px;
+        height:16px;
+        left:16px;
+        top:calc(50% - 8px);
+    }
+
+    
+    
+}
+
+
+
+.vui-button{
+    cursor: pointer;
+    border:0;
+    padding: $base-button-padding;
+    font-size: 16px;
+    border-radius: 12px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    background-color: $base-button-default-background-color;
+    transition: all .2s ease-in-out;
+
+    &.large{
+        padding: 16px 32px;
+    }
+
+    &.xlarge{
+        padding: 18px 52px;
+    }
+
+    &.bold{
+        font-weight: bold;
+    }
+
+    
+
+    @media screen and (max-width: #{$breakpoint-md}) {    
+        padding: $base-button-mobile-padding;
+        font-size: 14px;
+    }
+
+    &:active{
+        transform: scale(0.95);
+    }
+
+    &.active{
+        background-color: $base-button-background-color;
+        color: $base-background-color;
+        font-weight: bold;
+
+        &:hover{
+            background-color: $base-button-background-color;
+        }
+    }
+
+    &:hover{
+        //background-color: $base-button-hover-color;
+        opacity: 0.8;
+    }
+    
+
+    &.round {
+        padding: 8px;
+        margin:0px;
+        border-radius: 100%;
+        width:36px;
+        height:36px;
+        background-color: transparent;
+        position: relative;
+        transition: all .1s ease-in-out;
+
+
+        &:hover{
+            background-color: $base-button-hover-color;
+        }
+
+        &:active{
+            transition: all .2s ease-in-out;
+            background-color: $base-button-active-color;
+        }
+
+        
+    }
+
+    &:disabled{
+        opacity: 0.5;
+        cursor:default;
+        &:hover{
+            background-color: $base-button-default-background-color;
+        }
+    }
+}
+
+.vui-link-icon{
+    cursor:pointer;
+    display: inline-flex;
+    width:32px;
+    height:32px;
+    margin:8px;
+    padding:8px;
+    img{
+        width:24px;
+        height:24px;
+        object-fit: cover;
+        filter: brightness(0) saturate(100%) invert(24%) sepia(0%) saturate(1%) hue-rotate(333deg) brightness(96%) contrast(100%);
+    }
+    &:hover{
+        img{
+            filter: brightness(0) saturate(100%) invert(16%) sepia(54%) saturate(4871%) hue-rotate(342deg) brightness(92%) contrast(94%);
+        }
+    }
+}
+
+    
+
+
+
+
+

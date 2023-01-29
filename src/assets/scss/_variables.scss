@@ -1,0 +1,63 @@
+$base-primary-color: #bc1d2d;
+$base-primary-opacity-color: #bc1d2d90;
+$base-primary-shadow-color: #bc1d2d60;
+
+
+$base-selection-color: rgba(255, 32, 71, .2);
+
+$base-background-color: #fff;
+$base-background-opacity-color: #fffffff7;
+$base-foreground-color: #3c3c3c;
+$base-foreground-opacity-color: #3c3c3c50;
+$base-foreground-subtitle-color: #666;
+$base-foreground-placeholder-color: #999;
+$base-foreground-sub-color: #999;
+$base-border-color: #3c3c3c10;
+$base-border-highlight-color: #3c3c3c40;
+
+$base-button-background-color: #bc1d2dc0;
+$base-button-default-background-color: #f0f0f0;
+$base-button-hover-color: #03030320;
+$base-button-active-color: #bc1d2d50;
+$base-button-active-default-color: #f0f0f080;
+
+$base-button-padding: 12px 18px;
+$base-button-mobile-padding: 10px 14px;
+
+$breakpoint-mobile: 520px;
+$breakpoint-md: 640px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-max: 1320px;
+
+$full-width: 1320px;
+$min-width : 320px;
+$view-optimal-max-width: 960px;
+
+$header-height: 70px;
+$header-mobile-height: 60px;
+$header-menu-foreground-color: #000;
+$header-submenu-foreground-color: #3A3A3C;
+
+.container-width{
+    max-width: $full-width;
+    min-width:$min-width;
+    @media screen and (max-width: #{$breakpoint-max}) {   
+        max-width: 1000px;
+    }
+
+    @media screen and (max-width: #{$breakpoint-desktop}) {   
+        max-width: 748px;
+    }
+    
+    @media screen and (max-width: #{$breakpoint-tablet}) {   
+        max-width: calc(100% - 16px);
+
+        &.full {
+            max-width: 100% !important;
+        }
+    }
+
+    
+}
+
