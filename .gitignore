@@ -1,0 +1,50 @@
+Last login: Sun Jan 29 16:29:42 on ttys000
+ghpark@ghpark-MacBookPro ~ % ls
+Applications	Documents	Movies		Postman
+Desktop		Downloads	Music		Public
+Development	Library		Pictures	dump
+ghpark@ghpark-MacBookPro ~ % cd Deskto
+cd: no such file or directory: Deskto
+ghpark@ghpark-MacBookPro ~ % cd Desktop
+ghpark@ghpark-MacBookPro Desktop % ls
+images
+util
+workspace
+스크린샷 2023-01-16 오후 9.57.41.png
+스크린샷 2023-01-16 오후 9.58.21.png
+ghpark@ghpark-MacBookPro Desktop % cd workspace
+ghpark@ghpark-MacBookPro workspace % ls
+ai		game		key		part3.ppk	vazil
+art		hobit		mobile		presentation	web
+example		jmeter		part3.pem	sample
+ghpark@ghpark-MacBookPro workspace % cd vazil
+ghpark@ghpark-MacBookPro vazil % cd vhp
+ghpark@ghpark-MacBookPro vhp % cd vhp-front
+ghpark@ghpark-MacBookPro vhp-front % sudo vi .gitignore 
+Password:
+
+.DS_Store
+node_modules
+/dist
+
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+".gitignore" 23L, 231B
+
