@@ -3,149 +3,50 @@
   <div v-if="content" class="card-content-container ">
     <div class="vui-main-content-title">
       <div class="page-subtitle">
-        {{content.category}}
+        {{subtitle}}
       </div>
       <div class="page-title">
-        {{content.title}}
+        {{title}}
       </div>
       <div class="page-subtitle">
-        {{content.editedDate}}
+        {{date}}
       </div>
     </div>
 
-    <div class="page-contents ql-editor" v-html="content.content">
-    </div>
-
-    <div class="content-attachment-wrap" v-if="content.attachment">
-      <a target="_blank" :href="content.attachment.url" :download="content.attachment.filename">
-        {{content.attachment.filename}} 
-        <img alt="download" src="@/assets/image/download.svg" height="16"/>
-      </a>
-    </div>
-
-    <div v-if="!previewContent" class="content-share-wrap">
-      <button class="vui-button"  @click="copyUrl()"><img src="@/assets/image/link.svg" alt="list" height="18" width="18"/>
-      </button>
-      <button class="vui-button"  @click="like()"><img src="@/assets/image/like.svg" alt="list" height="18" width="18"/>
-        <span>{{ this.content.likeCount || 0 }}</span>
-      </button>
-      <button class="vui-button"  @click="print()"><img src="@/assets/image/print.svg" alt="list" height="18" width="18"/>
-      </button>
-    </div>
-
-    <div class="content-tags-wrap">
-      <span
-        v-for="tag in content.hashTags"
-        :key="tag"
-        @click="goList(tag)"
-      >
-        #{{tag}}
-      </span>
+    <div class="page-contents" v-html="content">
     </div>
   </div>
-
-  <div v-if="content && !previewContent" class="content-navigator">
-
-      <div class="list-button">
-        <button class="vui-button"  @click="goList()">{{$t('목록보기')}}</button>
-      </div>
-
-      
-      <h2>
-        <strong>{{content.category}}</strong> {{$t('추천글')}}
-      </h2>
-      
-      <div class="featured-list" v-if="content.contentFeaturedList && content.contentFeaturedList.length > 0">
-        <vui-simple-card 
-          v-for="item in content.contentFeaturedList"
-          :key="item.id"
-          :content="item"
-          :base-url="$route.path"
-          :list-url="$route.query.list"
-        />
-      </div>  
-    </div>
 </div>
 </template>
 
 <script>
-import vuiSimpleCard from '@/components/cards/vuiSimpleCard.vue'
 export default {
   name: 'ContentIndex',
-  components:{
-    vuiSimpleCard
-  },
   props:{
-    id:{
+    title:{
       type:String,
       default:''
     },
-    previewContent: {
-      type: Object,
-    }
+    subtitle:{
+      type:String,
+      default:''
+    },
+    date:{
+      type:String,
+      default:''
+    },
+    content:{
+      type:String,
+      default:''
+    },
   },
   data() {
     return {
-      content:null,
     }
   },
   mounted() {
-    if(this.id)
-      this.getContent(this.id)
-    else if(this.previewContent)
-      this.content = this.previewContent
-  },
-  watch:{
-    id() {
-      this.getContent(this.id)
-    },
-    '$route.query.id'() {
-      this.getContent(this.$route.query.id)
-    }
   },
   methods:{
-    async getContent(id) {
-      await this.$axios.get('/content/details', {
-        params:{
-          id: id
-        }
-      })
-      .then(res=>{
-        this.content = res.data
-      })
-      .catch(err=>{
-        console.log(err)
-      })
-    },
-    copyUrl() {
-      const val = window.location.href
-      this.$utils.copy(val)
-      alert('현재 주소가 클립보드에 복사되었습니다.')
-    },
-    print() {
-      window.print()
-    },
-    like() {
-      this.$axios.post('/content/like',{
-        id:this.content.id
-      })
-      .then(res=>{
-        this.content.likeCount = res.data || 0
-      })
-      .catch(err=>{
-        console.log(err)
-      })
-    },
-    goList(tag) {
-      let listUrl = this.$route.query.list
-
-      if(!listUrl)
-        this.$router.go(-1)
-      else {
-        let redirectUrl = tag ? listUrl + '?tag=' + tag : listUrl
-        this.$router.push(redirectUrl)
-      } 
-    }
   }
 }
 </script>
