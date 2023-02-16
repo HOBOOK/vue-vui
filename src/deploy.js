@@ -37,6 +37,15 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
   
 export default {
-    First,
-    Second
+  vuiCard,
+  vuiTable,
+  vuiSelect,
+  vuiSlide,
+  vuiEmpty,
+  vuiLoading,
+  vuiPlayer,
+  vuiBreadcrumb,
+  vuiStepper,
+  vuiHeader,
+  vuiFooter
 }
