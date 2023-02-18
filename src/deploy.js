@@ -10,8 +10,9 @@ import vuiStepper from '@/components/stepper/vuiStepper.vue'
 
 import vuiHeader from '@/components/vuiHeader.vue'
 import vuiFooter from '@/components/vuiFooter.vue'
-
-const components = [
+  
+export default {
+  components: {
     vuiCard,
     vuiTable,
     vuiSelect,
@@ -23,29 +24,5 @@ const components = [
     vuiStepper,
     vuiHeader,
     vuiFooter
-];
-  
-const install = function(Vue) { 
-    components.forEach(component => {
-      Vue.component(component.name, component);
-    });
+  }
 };
-  
-  /* istanbul ignore if */
-if (typeof window !== 'undefined' && window.Vue) {
-    install(window.Vue);
-}
-  
-export default {
-  vuiCard,
-  vuiTable,
-  vuiSelect,
-  vuiSlide,
-  vuiEmpty,
-  vuiLoading,
-  vuiPlayer,
-  vuiBreadcrumb,
-  vuiStepper,
-  vuiHeader,
-  vuiFooter
-}
