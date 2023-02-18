@@ -1,47 +1,47 @@
 {
   "name": "vue-vazil-ui",
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/HOBOOK/vue-vui"
-    },
-    "version": "1.0.0",
-    "publishConfig": {
-      "registry": "https://npm.pkg.github.com"
-    },
-    "description": "vue ui library by vazil",
-    "main": "dist/vue-vazil-ui.cjs.js",
-    "browser": "dist/vue-vazil-ui.esm.js",
-    "module": "dist/vue-vazil-ui.esm.js",
-    "unpkg": "dist/vue-vazil-ui.cjs.js",
-    "types": "vue-vazil-ui.d.ts",
-    "files": [
-      "dist/*",
-      "vue-vazil-ui.d.ts",
-      "src/**/*.vue"
-    ],
-    "sideEffects": false,
-    "scripts": {
-      "serve": "vue-cli-service serve",
-      "build": "cross-env NODE_ENV=production rollup --config rollup.config.js",
-      "publishing": "npm version patch&&cross-env NODE_ENV=production rollup --config rollup.config.js&&npm publish"
-    },
-    "devDependencies": {
-      "cross-env": "^7.0.3",
-      "minimist": "^1.2.5",
-      "rollup": "^2.36.1",
-      "rollup-plugin-inject-process-env": "^1.3.1",
-      "rollup-plugin-terser": "^7.0.2",
-      "@vue/compiler-sfc": "^3.2.47",
-      "core-js": "^3.8.3",
-      "rollup-plugin-vue": "^6.0.0",
-      "vue": "^3.2.13",
-      "vue-template-compiler": "^2.7.14",
-      "@babel/core": "^7.12.16",
-      "@babel/eslint-parser": "^7.12.16",
-      "@vue/cli-plugin-babel": "~5.0.0",
-      "@vue/cli-plugin-eslint": "~5.0.0",
-      "@vue/cli-service": "~5.0.0",
-      "node-sass": "^8.0.0",
-      "sass-loader": "^13.2.0"
-    }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HOBOOK/vue-vui"
+  },
+  "version": "1.0.1",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "description": "vue ui library by vazil",
+  "main": "dist/vue-vazil-ui.cjs.js",
+  "browser": "dist/vue-vazil-ui.esm.js",
+  "module": "dist/vue-vazil-ui.esm.js",
+  "unpkg": "dist/vue-vazil-ui.cjs.js",
+  "types": "vue-vazil-ui.d.ts",
+  "files": [
+    "dist/*",
+    "vue-vazil-ui.d.ts",
+    "src/**/*.vue"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "cross-env NODE_ENV=production rollup --config rollup.config.js",
+    "publishing": "npm version patch&&cross-env NODE_ENV=production rollup --config rollup.config.js&&npm publish"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "minimist": "^1.2.5",
+    "rollup": "^2.36.1",
+    "rollup-plugin-inject-process-env": "^1.3.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "@vue/compiler-sfc": "^3.2.47",
+    "core-js": "^3.8.3",
+    "rollup-plugin-vue": "^6.0.0",
+    "vue": "^3.2.13",
+    "vue-template-compiler": "^2.7.14",
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "node-sass": "^8.0.0",
+    "sass-loader": "^13.2.0"
   }
+}
