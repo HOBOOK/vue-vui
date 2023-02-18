@@ -23,7 +23,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "cross-env NODE_ENV=production rollup --config rollup.config.js",
-    "publishing": "npm version patch&&cross-env NODE_ENV=production rollup --config rollup.config.js&&npm publish"
+    "publish": "npm version patch&&cross-env NODE_ENV=production rollup --config rollup.config.js&&npm publish"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
