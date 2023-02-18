@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/HOBOOK/vue-vui"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
