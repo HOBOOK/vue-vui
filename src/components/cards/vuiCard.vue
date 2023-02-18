@@ -2,8 +2,6 @@
   <div class="vui-card" @click="onClickCard(content)" :class="showSimple ? 'simple' : ''">
     <div class="vui-card-wrap">
         <div class="vui-card-title" v-if="showTitle">
-            <!-- <img  alt="catgory" :src="require('@/assets/image/category/' + content.category.toLowerCase() + '.svg')"/> -->
-
             <span class="category">{{$t(content.category)}}</span>
 
         </div>
@@ -80,10 +78,6 @@ export default {
             } else {
                 this.$router.push(this.baseUrl + '?id=' + content.id + '&list=' + this.listUrl)
             }
-        },
-
-        getCategoryImage(category) {
-            return '@/assets/image/category/' + category.toLowerCase() + '.svg'
         },
 
         replaceImage(e) {

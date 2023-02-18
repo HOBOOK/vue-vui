@@ -9,7 +9,7 @@
             </slot>
             <div class="vui-input" v-if="!$slots.top">
                 <input class="append-icon" type="text" name="search" id="search" v-model="searchKeyword" placeholder="검색어를 입력하세요."/>
-                <img class="icon" src="@/assets/image/magnify.svg" width="16" height="16" alt="magnify" />
+                <img class="icon" src="../../assets/image/magnify.svg" width="16" height="16" alt="magnify" />
             </div>
         </div>
     </div>

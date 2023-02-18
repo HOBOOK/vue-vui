@@ -13,10 +13,10 @@
   "browser": "dist/vue-vazil-ui.esm.js",
   "module": "dist/vue-vazil-ui.esm.js",
   "unpkg": "dist/vue-vazil-ui.cjs.js",
-  "types": "vue-vazil-ui.d.ts",
+  "types": "vue-vazil-ui.d.js",
   "files": [
     "dist/*",
-    "vue-vazil-ui.d.ts",
+    "vue-vazil-ui.d.js",
     "src/**/*.vue"
   ],
   "sideEffects": false,
@@ -26,22 +26,28 @@
     "publish": "npm version patch&&cross-env NODE_ENV=production rollup --config rollup.config.js&&npm publish"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
-    "minimist": "^1.2.5",
-    "rollup": "^2.36.1",
-    "rollup-plugin-inject-process-env": "^1.3.1",
-    "rollup-plugin-terser": "^7.0.2",
-    "@vue/compiler-sfc": "^3.2.47",
-    "core-js": "^3.8.3",
-    "rollup-plugin-vue": "^6.0.0",
-    "vue": "^3.2.13",
-    "vue-template-compiler": "^2.7.14",
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "@vue/compiler-sfc": "^3.2.47",
+    "core-js": "^3.8.3",
+    "cross-env": "^7.0.3",
     "node-sass": "^8.0.0",
-    "sass-loader": "^13.2.0"
+    "rollup": "^2.36.1",
+    "rollup-plugin-bundle-scss": "^0.1.3",
+    "rollup-plugin-scss": "^4.0.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass-loader": "^13.2.0",
+    "vue": "^3.2.13",
+    "vue-template-compiler": "^2.7.14"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-dynamic-import-vars": "^2.0.3",
+    "rollup-plugin-css-only": "^4.3.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-sass-variables": "^0.1.1"
   }
 }
