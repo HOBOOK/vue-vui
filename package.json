@@ -6,7 +6,7 @@
   },
   "version": "1.0.1",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org"
   },
   "description": "vue ui library by vazil",
   "main": "dist/vue-vazil-ui.cjs.js",
